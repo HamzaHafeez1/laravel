@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', 'GeneralController@index');
-Route::get('/tasks','TasksController@tasks');
-Route::get('/tasks/{id?}','TasksController@taskById');
+Route::get('/', function () {
+    return view('tasks.input_tasks');
+});
+
+Route::post('/add_post','TaskController@addPost');
+
+Route::get('/show_post','TaskController@showPost');
+
+Route::get('/delete_post/{id?}','TaskController@deletePost');
